@@ -56,4 +56,7 @@ var callLinkedList = new ll.LinkedList();
 callLinkedList.addFirst(9);
 callLinkedList.addFirst(8);
 callLinkedList.addLast(7);
+callLinkedList.addAtPosition(1, 2);
+callLinkedList.addAtPosition(4, 5);
+callLinkedList.traverse();
 //# sourceMappingURL=test.js.map

@@ -33,7 +33,9 @@ import * as node from './LinkNode'
     this.head = null;
     this.size =0;
     this.tail = null;
+
   }
+
   addFirst(data){
     var lnknd = new node.LinkNode(data);
     if(this.head == null){
@@ -45,6 +47,7 @@ import * as node from './LinkNode'
     }
     this.size++;
   }
+
   addLast(data){
     var lnknd = new node.LinkNode(data);
     var temp = this.head;
@@ -52,7 +55,35 @@ import * as node from './LinkNode'
       temp = temp.getNext();
     }
     temp.setNext(lnknd);
-
-
+      this.size++;
   }
+
+  addAtPosition(data, position){
+    var pos=1;
+    var lnknd = new node.LinkNode(data);
+    var temp = this.head;
+    if (position > this.size)
+    {
+      return;
+    }
+    this.size++;
+    while(pos!=position)
+    {
+      temp = temp.getNext();
+      pos++;
+    }
+    var nextNode = temp;
+    temp.setNext(lnknd);
+    lnknd.setNext(nextNode);
+     
+  }
+
+
+ traverse(){
+   var temp = this.head;
+   while (temp.getNext() != null){
+     temp = temp.getNext();
+     console.log(temp.getData());
+   }
+   }
  }
