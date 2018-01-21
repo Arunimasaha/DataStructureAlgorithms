@@ -10,7 +10,7 @@ export class CircularQueue{
 
   getSize()
   {
-    return (this.capacity-this.front+this.rear)%this.capacity
+    return (this.capacity-this.front+this.rear +1 )%this.capacity
   }
 
 
@@ -30,6 +30,9 @@ export class CircularQueue{
     this.rear = (this.rear +1 ) % this.capacity;
     this.queue[this.rear] = data;
     this.size ++;
+    if(this.front === -1){
+      this.front = this.rear;
+    }
   }
 
   dequeue(){
@@ -37,8 +40,9 @@ export class CircularQueue{
         console.log("Queue is empty");
         return;
     }
-    this.front = (this.front + 1) % this.capacity;
+    
     var data = this.queue[this.front];
+    this.front = (this.front + 1) % this.capacity;
     this.size--;
     return data;
 }

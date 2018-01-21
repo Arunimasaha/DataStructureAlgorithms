@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Current File",
-            "program": "C:\\Users\\Arunima\\Desktop\\Datastructure_Algo\\.compiled\\test.js",
+            "program": "/Users/ujjaldutta/Documents/MyProjects/DataStructureAlgorithms/.compiled/test.js",
             "outFiles": [ "${workspaceFolder}/.compiled/**/*.js" ]
         }
         

@@ -22,7 +22,7 @@ var CircularQueue = exports.CircularQueue = function () {
   _createClass(CircularQueue, [{
     key: "getSize",
     value: function getSize() {
-      return (this.capacity - this.front + this.rear) % this.capacity;
+      return (this.capacity - this.front + this.rear + 1) % this.capacity;
     }
   }, {
     key: "isFull",
@@ -44,6 +44,9 @@ var CircularQueue = exports.CircularQueue = function () {
       this.rear = (this.rear + 1) % this.capacity;
       this.queue[this.rear] = data;
       this.size++;
+      if (this.front === -1) {
+        this.front = this.rear;
+      }
     }
   }, {
     key: "dequeue",
@@ -52,8 +55,9 @@ var CircularQueue = exports.CircularQueue = function () {
         console.log("Queue is empty");
         return;
       }
-      this.front = (this.front + 1) % this.capacity;
+
       var data = this.queue[this.front];
+      this.front = (this.front + 1) % this.capacity;
       this.size--;
       return data;
     }
