@@ -59,7 +59,7 @@ import * as node from './LinkNode'
   }
 
   addAtPosition(data, position){
-    var pos=1;
+    var pos=0;
     var lnknd = new node.LinkNode(data);
     var temp = this.head;
     if (position > this.size)
@@ -67,23 +67,22 @@ import * as node from './LinkNode'
       return;
     }
     this.size++;
-    while(pos!=position)
+    while(++pos!=position)
     {
       temp = temp.getNext();
-      pos++;
     }
-    var nextNode = temp;
-    temp.setNext(lnknd);
+    var nextNode = temp.getNext();
     lnknd.setNext(nextNode);
-     
-  }
+    temp.setNext(lnknd);
+}
 
 
  traverse(){
    var temp = this.head;
    while (temp.getNext() != null){
-     temp = temp.getNext();
-     console.log(temp.getData());
+    console.log(temp.getData()); 
+    temp = temp.getNext();
+     
    }
    }
  }
