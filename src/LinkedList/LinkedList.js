@@ -79,10 +79,51 @@ import * as node from './LinkNode'
 
  traverse(){
    var temp = this.head;
-   while (temp.getNext() != null){
+   while (temp != null){
     console.log(temp.getData()); 
     temp = temp.getNext();
      
    }
+   }
+
+   deleteFirst()
+   {
+     var data = this.head.getData();
+     this.head = this.head.getNext();
+     console.log(data);
+   }
+
+   deleteLast()
+   {
+    var temp = this.head;
+    
+    while (temp.getNext().getNext() != null){
+      //console.log(temp.getData())
+     temp = temp.getNext();
+     
+    }
+    temp.setNext(null);
+   }
+
+   search(data)
+   {
+     var temp = this.head;
+     var pos = 1;
+    
+       while( temp.getData() != data)
+       {
+        
+      //console.log(temp.getData())
+     temp = temp.getNext();
+     pos++;
+     if(temp== null)
+        {
+          console.log("not found")
+          return;
+        }
+       
+    }
+   
+    console.log(pos);
    }
  }

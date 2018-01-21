@@ -58,5 +58,7 @@ callLinkedList.addFirst(8);
 callLinkedList.addLast(7);
 callLinkedList.addAtPosition(1, 2);
 callLinkedList.addAtPosition(4, 5);
+//callLinkedList.deleteLast();
 callLinkedList.traverse();
+callLinkedList.search(7);
 //# sourceMappingURL=test.js.map
