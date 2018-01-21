@@ -42,6 +42,7 @@ export class CircularQueue{
     }
     
     var data = this.queue[this.front];
+    delete(this.queue[this.front]);
     this.front = (this.front + 1) % this.capacity;
     this.size--;
     return data;
