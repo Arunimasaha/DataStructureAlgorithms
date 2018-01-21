@@ -44,7 +44,7 @@ var y = callcirqueue.getSize();
 callcirqueue.enqueue(8);
 callcirqueue.enqueue(7);
 var x = callcirqueue.dequeue();
-
+var k = callcirqueue.getSize();
 console.log(x);
 callcirqueue.enqueue(7);
 var x = callcirqueue.dequeue();
