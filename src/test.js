@@ -1,28 +1,28 @@
 //import {Stack} from 'Stack'
-// var stackModule= require('./Stack')
-// import * as queue from './Queue'
-// var cirqueuemodule = require('./CircularQueue')
-// var callStack = new stackModule.Stack(10);
+var stackModule= require('./Stack')
+import * as queue from './Queue'
+var cirqueuemodule = require('./CircularQueue')
+var callStack = new stackModule.Stack(10);
 
-// callStack.push(5);
-// callStack.push(7);
-// var x=callStack.pop();
-// console.log(x);
+callStack.push(5);
+callStack.push(7);
+var x=callStack.pop();
+console.log(x);
 
-// var obj= new queue.default(3);
-// obj.Enqueue(9)
-// obj.Enqueue(8)
-// obj.Enqueue(7)
-// obj.Enqueue(6)
-// var x = obj.Dequeue();
-// var y = obj.Dequeue();
-// var z = obj.Dequeue();
-// var a = obj.Dequeue();
-// console.log(x);
-// obj.Enqueue(9)
-// obj.Enqueue(8)
-// obj.Enqueue(7)
-// obj.Enqueue(6)
+var obj= new queue.Queue(3);
+obj.enqueue(9)
+obj.enqueue(8)
+obj.enqueue(7)
+obj.enqueue(6)
+var x = obj.dequeue();
+var y = obj.dequeue();
+var z = obj.dequeue();
+var a = obj.dequeue();
+console.log(x);
+obj.enqueue(9)
+obj.enqueue(8)
+obj.enqueue(7)
+obj.enqueue(6)
 
 import * as cirqueue from './CircularQueue'
 

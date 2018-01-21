@@ -1,37 +1,42 @@
 'use strict';
 
+var _Queue = require('./Queue');
+
+var queue = _interopRequireWildcard(_Queue);
+
 var _CircularQueue = require('./CircularQueue');
 
 var cirqueue = _interopRequireWildcard(_CircularQueue);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-var callcirqueue = new cirqueue.CircularQueue(3); //import {Stack} from 'Stack'
-// var stackModule= require('./Stack')
-// import * as queue from './Queue'
-// var cirqueuemodule = require('./CircularQueue')
-// var callStack = new stackModule.Stack(10);
+//import {Stack} from 'Stack'
+var stackModule = require('./Stack');
 
-// callStack.push(5);
-// callStack.push(7);
-// var x=callStack.pop();
-// console.log(x);
+var cirqueuemodule = require('./CircularQueue');
+var callStack = new stackModule.Stack(10);
 
-// var obj= new queue.default(3);
-// obj.Enqueue(9)
-// obj.Enqueue(8)
-// obj.Enqueue(7)
-// obj.Enqueue(6)
-// var x = obj.Dequeue();
-// var y = obj.Dequeue();
-// var z = obj.Dequeue();
-// var a = obj.Dequeue();
-// console.log(x);
-// obj.Enqueue(9)
-// obj.Enqueue(8)
-// obj.Enqueue(7)
-// obj.Enqueue(6)
+callStack.push(5);
+callStack.push(7);
+var x = callStack.pop();
+console.log(x);
 
+var obj = new queue.Queue(3);
+obj.enqueue(9);
+obj.enqueue(8);
+obj.enqueue(7);
+obj.enqueue(6);
+var x = obj.dequeue();
+var y = obj.dequeue();
+var z = obj.dequeue();
+var a = obj.dequeue();
+console.log(x);
+obj.enqueue(9);
+obj.enqueue(8);
+obj.enqueue(7);
+obj.enqueue(6);
+
+var callcirqueue = new cirqueue.CircularQueue(3);
 callcirqueue.enqueue(4);
 callcirqueue.enqueue(9);
 

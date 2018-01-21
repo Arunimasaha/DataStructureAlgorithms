@@ -13,20 +13,24 @@ var Queue = exports.Queue = function () {
     _classCallCheck(this, Queue);
 
     this.queue = [];
-    this.head = -1;
-    this.tail = -1;
+    this.rear = -1;
+    this.front = -1;
     this.capacity = capacity;
   }
 
   _createClass(Queue, [{
     key: "isFull",
     value: function isFull() {
-      return this.size === this.capacity;
+      if (this.rear == this.capacity - 1) return true;else return false;
     }
   }, {
     key: "isEmpty",
     value: function isEmpty() {
-      return this.size === 0;
+      if (this.rear == this.front && this.front == -1) return false;else if (this.rear == this.front) {
+        this.rear = -1;
+        this.front = -1;
+        return true;
+      } else return false;
     }
   }, {
     key: "enqueue",
@@ -35,9 +39,8 @@ var Queue = exports.Queue = function () {
         console.log("queue is full");
         return;
       }
-      this.rear = (this.rear + 1) % this.capacity;
+      this.rear = this.rear + 1;
       this.queue[this.rear] = data;
-      this.size++;
     }
   }, {
     key: "dequeue",
@@ -46,9 +49,10 @@ var Queue = exports.Queue = function () {
         console.log("Queue is empty");
         return;
       }
-      this.front = (this.front + 1) % this.capacity;
+      this.front = this.front + 1;
       var data = this.queue[this.front];
-      this.size--;
+      delete this.queue[this.front];
+
       return data;
     }
   }]);

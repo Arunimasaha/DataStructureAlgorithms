@@ -2,17 +2,30 @@ export class Queue{
 
     constructor(capacity){
       this.queue = [];
-      this.head = -1;
-      this.tail = -1;
+      this.rear = -1;
+      this.front = -1;
       this.capacity = capacity;
     }
 
     isFull(){
-      return this.size === this.capacity;
+      if (this.rear == this.capacity-1)
+       return true;
+       else
+       return false;
+
     }
 
     isEmpty(){
-      return this.size === 0;
+      if(this.rear == this.front && this.front==-1)
+       return false
+       else if (this.rear == this.front)
+       {
+          this.rear = -1;
+      this.front = -1;
+       return true
+       }
+       else
+       return false
     }
 
     enqueue(data){
@@ -20,9 +33,9 @@ export class Queue{
           console.log("queue is full");
           return;
       }
-      this.rear = (this.rear +1 ) % this.capacity;
+      this.rear = this.rear +1 ;
       this.queue[this.rear] = data;
-      this.size ++;
+      
     }
 
     dequeue(){
@@ -30,9 +43,11 @@ export class Queue{
           console.log("Queue is empty");
           return;
       }
-      this.front = (this.front + 1) % this.capacity;
+      this.front=this.front+1;
       var data = this.queue[this.front];
-      this.size--;
+      delete(this.queue[this.front])
+      
+     
       return data;
   }
 }
