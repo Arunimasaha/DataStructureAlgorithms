@@ -237,8 +237,67 @@ InsertionSort2(sortedList,node1){
   }
     }
 }
+
+LoopDetection()
+{
+  var x =1;
+//  addFirst(4);
+  // addFirst(7);
+  // addFirst(9);
+  this.head.getNext().getNext().getNext().setNext(this.head);
+  var SlowPt = this.head;
+  var FastPt = this.head;
+  while(SlowPt && FastPt && FastPt.getNext())
+  {
+
+    FastPt = FastPt.getNext();
+    if(FastPt == SlowPt)
+    {
+      x = 0;
+
+      console.log("Loop detected");
+      this.LoopRemoval(SlowPt,this.head);
+      break;
+    }
+    SlowPt = SlowPt.getNext();
+    FastPt = FastPt.getNext();
+    if(FastPt == SlowPt)
+    {
+      x = 0;
+      console.log("Loop detected");
+      this.LoopRemoval(SlowPt,this.head);
+
+      break;
+    }
+
+  }
+  if (x ==1)
+     console.log("no loop detected");
+
+
 }
 
+LoopRemoval(SlowPt,temp)
+{
+ // SlowPt = SlowPt.getNext();
+     
+   while(SlowPt.getNext() != temp)
+   {
+   
+      SlowPt = SlowPt.getNext();
+      temp = temp.getNext();
+
+      
+   
+    }
+    SlowPt.setNext(null)
+    
+
+}
+
+
+
+}
 
 
 

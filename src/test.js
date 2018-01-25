@@ -52,6 +52,7 @@ callLinkedList.reverse();
 var sortedList = callLinkedList.sort();
 callLinkedList.traverse();
 callLinkedList.search(7);
-
+callLinkedList.LoopDetection();
+callLinkedList.LoopDetection();
 
 
