@@ -3,6 +3,7 @@ var stackModule= require('./Stack')
 import * as queue from './Queue'
 import * as ll from './LinkedList/LinkedList'
 import * as dll from './LinkedList/DoubleLinkedList'
+import * as tree from './tree/BinaryTree'
 
 // var cirqueuemodule = require('./CircularQueue')
 // var callStack = new stackModule.Stack(10);
@@ -64,4 +65,9 @@ callDoubleLinledList.addLast(5);
 callDoubleLinledList.addLast(6);
 callDoubleLinledList.deleteFirst();
 
-
+var callBinaryTree = new tree.BinarySearchTree();
+var root = callBinaryTree.createNode(9);
+callBinaryTree.addNode(null,root);
+callBinaryTree.addNode(root,callBinaryTree.createNode(1));
+callBinaryTree.addNode(root,callBinaryTree.createNode(5));
+callBinaryTree.addNode(root,callBinaryTree.createNode(8));

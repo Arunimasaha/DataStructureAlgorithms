@@ -12,6 +12,10 @@ var _DoubleLinkedList = require('./LinkedList/DoubleLinkedList');
 
 var dll = _interopRequireWildcard(_DoubleLinkedList);
 
+var _BinaryTree = require('./tree/BinaryTree');
+
+var tree = _interopRequireWildcard(_BinaryTree);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 //import {Stack} from 'Stack'
@@ -77,4 +81,16 @@ callDoubleLinledList.addFirst(3);
 callDoubleLinledList.addLast(5);
 callDoubleLinledList.addLast(6);
 callDoubleLinledList.deleteFirst();
+
+var callBinaryTree = new tree.BinarySearchTree();
+var root = callBinaryTree.createNode(9);
+callBinaryTree.addNode(null, root);
+callBinaryTree.addNode(root, callBinaryTree.createNode(1));
+callBinaryTree.addNode(root, callBinaryTree.createNode(5));
+callBinaryTree.addNode(root, callBinaryTree.createNode(8));
+callBinaryTree.addNode(root, callBinaryTree.createNode(11));
+callBinaryTree.addNode(root, callBinaryTree.createNode(10));
 //# sourceMappingURL=test.js.map
+
+
+
