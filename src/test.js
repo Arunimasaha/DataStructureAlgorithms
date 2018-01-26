@@ -2,6 +2,8 @@
 var stackModule= require('./Stack')
 import * as queue from './Queue'
 import * as ll from './LinkedList/LinkedList'
+import * as dll from './LinkedList/DoubleLinkedList'
+
 // var cirqueuemodule = require('./CircularQueue')
 // var callStack = new stackModule.Stack(10);
 
@@ -54,5 +56,12 @@ callLinkedList.traverse();
 callLinkedList.search(7);
 callLinkedList.LoopDetection();
 callLinkedList.LoopDetection();
+
+var callDoubleLinledList = new dll.DoubleLinkedList()
+callDoubleLinledList.addFirst(1);
+callDoubleLinledList.addFirst(3);
+callDoubleLinledList.addLast(5);
+callDoubleLinledList.addLast(6);
+callDoubleLinledList.deleteFirst();
 
 

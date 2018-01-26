@@ -8,10 +8,15 @@ var _LinkedList = require('./LinkedList/LinkedList');
 
 var ll = _interopRequireWildcard(_LinkedList);
 
+var _DoubleLinkedList = require('./LinkedList/DoubleLinkedList');
+
+var dll = _interopRequireWildcard(_DoubleLinkedList);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 //import {Stack} from 'Stack'
 var stackModule = require('./Stack');
+
 
 // var cirqueuemodule = require('./CircularQueue')
 // var callStack = new stackModule.Stack(10);
@@ -65,4 +70,11 @@ callLinkedList.traverse();
 callLinkedList.search(7);
 callLinkedList.LoopDetection();
 callLinkedList.LoopDetection();
+
+var callDoubleLinledList = new dll.DoubleLinkedList();
+callDoubleLinledList.addFirst(1);
+callDoubleLinledList.addFirst(3);
+callDoubleLinledList.addLast(5);
+callDoubleLinledList.addLast(6);
+callDoubleLinledList.deleteFirst();
 //# sourceMappingURL=test.js.map
