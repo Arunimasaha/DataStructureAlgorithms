@@ -88,9 +88,10 @@ callBinaryTree.addNode(null, root);
 callBinaryTree.addNode(root, callBinaryTree.createNode(1));
 callBinaryTree.addNode(root, callBinaryTree.createNode(5));
 callBinaryTree.addNode(root, callBinaryTree.createNode(8));
-callBinaryTree.addNode(root, callBinaryTree.createNode(11));
-callBinaryTree.addNode(root, callBinaryTree.createNode(10));
+callBinaryTree.addNode(root, callBinaryTree.createNode(20));
+callBinaryTree.addNode(root, callBinaryTree.createNode(15));
+var max = callBinaryTree.maxElem(root);
+var min = callBinaryTree.minElem(root);
+
+var elem = callBinaryTree.search(root, 3);
 //# sourceMappingURL=test.js.map
-
-
-

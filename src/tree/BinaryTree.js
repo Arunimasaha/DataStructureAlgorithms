@@ -6,8 +6,9 @@ export class BinarySearchTree
     {
         this.root = null;
         this.height = null;
+        this.index = 0;
     }
-    
+
     addNode(rootElm,treeElm)
     {
         if (this.root == null)
@@ -17,9 +18,9 @@ export class BinarySearchTree
         
         else
         {
-            
+
             if(rootElm.getData() >= treeElm.getData()){
-                
+
                 if (rootElm.getLeftChild()== null) //left child
                 {
                     rootElm.setLeftChild(treeElm);
@@ -41,14 +42,68 @@ export class BinarySearchTree
             }
         }
     }
-    
-    
-    
+
+
+
     createNode(data){
         return new treeNode.TreeNode(data);
     }
-    
+
     getRoot(){
         return this.root;
+    }
+
+    maxElem(root)
+    {
+
+        if(root.getRightChild() != null)
+        {
+            return this.maxElem(root.getRightChild());
+        }
+        else if(root.getLeftChild() !=null && root.getLeftChild()> root.getData())
+        {
+           return this.maxElem(root.getLeftChild())
+        }
+
+      else
+        return root.getData();
+
+    }
+
+    minElem(root)
+    {
+        
+        if(root.getLeftChild() !=null)
+        {
+           return this.minElem(root.getLeftChild())
+        }
+        else if(root.getRightChild() != null && root.getRightChild()<root.getData())
+        {
+            return this.minElem(root.getRightChild());
+        }
+
+      else
+        return root.getData(); 
+    }
+   
+    search(root, Elem)
+    {
+        if(root== null)
+        {
+            console.log("not found")
+        }
+        else if(root.getData() == Elem)
+        {
+            return root;
+        }
+       
+        else if(Elem < root.getData())
+        {
+           return this.search(root.getLeftChild(),Elem);
+        }
+        else
+        {
+           return this.search(root.getRightChild(),Elem);
+        }
     }
 }
