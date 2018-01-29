@@ -60,19 +60,28 @@ export class BinarySearchTree
             console.log("not found")
             return -1;
         }
-        else if(root.getRightChild().getData() == Elem || root.getRightChild().getData() == Elem)
+        else {
+
+        if((root.getRightChild() != null && root.getRightChild().getData() == Elem) || 
+            (root.getLeftChild() != null && root.getLeftChild().getData() == Elem))
         {
             return root;
         }
        
-        else if(Elem < root.getData())
-        {
-           return this.search(root.getLeftChild(),Elem);
-        }
         else
         {
-           return this.search(root.getRightChild(),Elem);
+           var left = this.getParent(root.getLeftChild(),Elem);
+           var right = this.getParent(root.getRightChild(),Elem);
+           if (left == right && left == -1)
+           {
+               return -1;
+           }
+           else
+           {
+               return left == -1 ? right : left
+           }
         }
+    }
     }
     maxElem(root)
     {
@@ -138,7 +147,15 @@ export class BinarySearchTree
         }
         else if(pos.getRightChild() == null && pos.getLeftChild() == null)
         {
-            pos.setData(null);
+            var parent = this.getParent(root, Elm)
+            if((parent.getRightChild() != null && parent.getRightChild().getData() == Elm))
+            {
+                parent.setRightChild(null)
+            }
+            else if((parent.getLeftChild() != null && parent.getLeftChild().getData() == Elm))
+            {
+                parent.setLeftChild(null)
+            }
         }
     }
 }
