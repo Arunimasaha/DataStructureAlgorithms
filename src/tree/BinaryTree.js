@@ -52,7 +52,28 @@ export class BinarySearchTree
     getRoot(){
         return this.root;
     }
-
+    
+    getParent(root, Elem)
+    {
+        if(root== null)
+        {
+            console.log("not found")
+            return -1;
+        }
+        else if(root.getRightChild().getData() == Elem || root.getRightChild().getData() == Elem)
+        {
+            return root;
+        }
+       
+        else if(Elem < root.getData())
+        {
+           return this.search(root.getLeftChild(),Elem);
+        }
+        else
+        {
+           return this.search(root.getRightChild(),Elem);
+        }
+    }
     maxElem(root)
     {
 
@@ -91,6 +112,7 @@ export class BinarySearchTree
         if(root== null)
         {
             console.log("not found")
+            return -1;
         }
         else if(root.getData() == Elem)
         {
@@ -104,6 +126,19 @@ export class BinarySearchTree
         else
         {
            return this.search(root.getRightChild(),Elem);
+        }
+    }
+
+    deleteNode(root , Elm)
+    {
+        var pos = this.search(root , Elm)
+        if(pos == -1)
+        {
+          console.log("does not exist");
+        }
+        else if(pos.getRightChild() == null && pos.getLeftChild() == null)
+        {
+            pos.setData(null);
         }
     }
 }

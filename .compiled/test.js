@@ -94,4 +94,6 @@ var max = callBinaryTree.maxElem(root);
 var min = callBinaryTree.minElem(root);
 
 var elem = callBinaryTree.search(root, 3);
+var parent = callBinaryTree.getParent(root, 15);
+callBinaryTree.deleteNode(root, 15);
 //# sourceMappingURL=test.js.map
