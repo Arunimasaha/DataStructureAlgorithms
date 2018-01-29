@@ -16,6 +16,10 @@ var _BinaryTree = require('./tree/BinaryTree');
 
 var tree = _interopRequireWildcard(_BinaryTree);
 
+var _traversal = require('./tree/traversal');
+
+var traversal = _interopRequireWildcard(_traversal);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 //import {Stack} from 'Stack'
@@ -61,26 +65,26 @@ var stackModule = require('./Stack');
 // var x = callcirqueue.dequeue();
 // console.log(x);
 
-var callLinkedList = new ll.LinkedList();
-callLinkedList.addFirst(9);
-callLinkedList.addFirst(8);
-callLinkedList.addLast(7);
-callLinkedList.addAtPosition(1, 2);
-callLinkedList.addAtPosition(4, 5);
-//callLinkedList.deleteLast();
-callLinkedList.reverse();
-var sortedList = callLinkedList.sort();
-callLinkedList.traverse();
-callLinkedList.search(7);
-callLinkedList.LoopDetection();
-callLinkedList.LoopDetection();
+// var callLinkedList = new ll.LinkedList()
+// callLinkedList.addFirst(9);
+// callLinkedList.addFirst(8);
+// callLinkedList.addLast(7);
+// callLinkedList.addAtPosition(1,2);
+// callLinkedList.addAtPosition(4,5);
+// //callLinkedList.deleteLast();
+// callLinkedList.reverse();
+// var sortedList = callLinkedList.sort();
+// callLinkedList.traverse();
+// callLinkedList.search(7);
+// callLinkedList.LoopDetection();
+// callLinkedList.LoopDetection();
 
-var callDoubleLinledList = new dll.DoubleLinkedList();
-callDoubleLinledList.addFirst(1);
-callDoubleLinledList.addFirst(3);
-callDoubleLinledList.addLast(5);
-callDoubleLinledList.addLast(6);
-callDoubleLinledList.deleteFirst();
+// var callDoubleLinledList = new dll.DoubleLinkedList()
+// callDoubleLinledList.addFirst(1);
+// callDoubleLinledList.addFirst(3);
+// callDoubleLinledList.addLast(5);
+// callDoubleLinledList.addLast(6);
+// callDoubleLinledList.deleteFirst();
 
 var callBinaryTree = new tree.BinarySearchTree();
 var root = callBinaryTree.createNode(9);
@@ -92,6 +96,6 @@ callBinaryTree.addNode(root, callBinaryTree.createNode(20));
 callBinaryTree.addNode(root, callBinaryTree.createNode(15));
 var max = callBinaryTree.maxElem(root);
 var min = callBinaryTree.minElem(root);
-
 var elem = callBinaryTree.search(root, 3);
+traversal.TreeTraversal.recursivePreOrder(root);
 //# sourceMappingURL=test.js.map
