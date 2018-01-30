@@ -1,6 +1,6 @@
 //import {Stack} from 'Stack'
 var stackModule= require('./Stack')
-import * as queue from './Queue'
+import {Queue}from './Queue'
 import * as ll from './LinkedList/LinkedList'
 import * as dll from './LinkedList/DoubleLinkedList'
 import * as tree from './tree/BinaryTree'
@@ -14,7 +14,7 @@ import * as traversal  from './tree/traversal'
 // var x=callStack.pop();
 // console.log(x);
 
-// var obj= new queue.Queue(3);
+// var obj= new queue(3);
 // obj.enqueue(9)
 // obj.enqueue(8)
 // obj.enqueue(7)
@@ -77,9 +77,6 @@ callBinaryTree.addNode(root,callBinaryTree.createNode(15));
 var max = callBinaryTree.maxElem(root);
 var min = callBinaryTree.minElem(root);
 var elem = callBinaryTree.search(root,3);
-traversal.TreeTraversal.recursivePreOrder(root);
 
-
-
-
-
+var mirrorTree = traversal.TreeTraversal.createMirrorTree(root);
+console.log(traversal.TreeTraversal.isMirrorImage(root,mirrorTree));
