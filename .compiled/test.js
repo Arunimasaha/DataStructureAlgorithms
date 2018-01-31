@@ -83,6 +83,7 @@ callDoubleLinledList.addLast(6);
 callDoubleLinledList.deleteFirst();
 
 var callBinaryTree = new tree.BinarySearchTree();
+var callBinaryTree2 = new tree.BinarySearchTree();
 var root = callBinaryTree.createNode(9);
 callBinaryTree.addNode(null, root);
 callBinaryTree.addNode(root, callBinaryTree.createNode(1));
@@ -90,6 +91,20 @@ callBinaryTree.addNode(root, callBinaryTree.createNode(5));
 callBinaryTree.addNode(root, callBinaryTree.createNode(8));
 callBinaryTree.addNode(root, callBinaryTree.createNode(20));
 callBinaryTree.addNode(root, callBinaryTree.createNode(15));
+var root1 = callBinaryTree2.createNode(9);
+callBinaryTree2.addNode(null, root1);
+callBinaryTree2.addNode(root1, callBinaryTree.createNode(1));
+callBinaryTree2.addNode(root1, callBinaryTree.createNode(5));
+callBinaryTree2.addNode(root1, callBinaryTree.createNode(8));
+callBinaryTree2.addNode(root1, callBinaryTree.createNode(20));
+callBinaryTree2.addNode(root1, callBinaryTree.createNode(15));
+root1.getLeftChild().setData(20);
+root1.getRightChild().setData(1);
+root1.getLeftChild().getRightChild().setData(15);
+root1.getLeftChild().getRightChild().setRightChild(null);
+root1.getRightChild().getLeftChild().setData(5);
+root1.getRightChild().getLeftChild().setLeftChild(callBinaryTree2.createNode(8));
+callBinaryTree.mirrorImage(root, root1);
 var max = callBinaryTree.maxElem(root);
 var min = callBinaryTree.minElem(root);
 

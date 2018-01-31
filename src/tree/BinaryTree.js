@@ -158,4 +158,41 @@ export class BinarySearchTree
             }
         }
     }
+
+    mirrorImage(root, root2)
+    {
+        var isMirrorL = true;
+        var isMirrorR = true;
+        if(root.getData()!= root2.getData())
+        {
+            console.log("not mirror")
+            return false
+        }
+       if(root.getLeftChild() == null && root2.getRightChild() == null && root.getRightChild()!= null && root2.getLeftChild()!= null)
+           {
+               return this.mirrorImage(root.getRightChild(), root2.getLeftChild());
+           }
+        
+        if(root.getRightChild() == null && root2.getLeftChild() == null && root.getLeftChild() != null && root2.getRightChild() != null)
+            {
+              return this.mirrorImage(root.getLeftChild(), root2.getRightChild());  
+            }
+
+       if(root.getLeftChild()!=null && root2.getRightChild()!=null)
+        {
+        
+         isMirrorL = this.mirrorImage(root.getLeftChild(), root2.getRightChild())
+       
+        }
+
+        else if(root.getRightChild()!=null && root2.getLeftChild()!=null)
+        {
+            
+             isMirrorR = this.mirrorImage(root.getRightChild(), root2.getLeftChild())
+        }
+        
+        return isMirrorL && isMirrorR
+      
+    }
+    
 }
