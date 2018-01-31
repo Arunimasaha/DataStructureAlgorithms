@@ -159,40 +159,31 @@ export class BinarySearchTree
         }
     }
 
-    mirrorImage(root, root2)
-    {
-        var isMirrorL = true;
-        var isMirrorR = true;
-        if(root.getData()!= root2.getData())
-        {
-            console.log("not mirror")
-            return false
+    isMirrorImage(root1,root2){
+        if(root1 == null && root2 == null){
+            return true;
         }
-       if(root.getLeftChild() == null && root2.getRightChild() == null && root.getRightChild()!= null && root2.getLeftChild()!= null)
-           {
-               return this.mirrorImage(root.getRightChild(), root2.getLeftChild());
-           }
-        
-        if(root.getRightChild() == null && root2.getLeftChild() == null && root.getLeftChild() != null && root2.getRightChild() != null)
-            {
-              return this.mirrorImage(root.getLeftChild(), root2.getRightChild());  
-            }
+        if((root1 == null && root2 != null) || (root1 != null && root2 ==null)){
+            return false;
+        }
+        if(root1.getData() == root2.getData()){
+            return this.isMirrorImage(root1.getLeftChild(),root2.getRightChild()) && 
+                    this.isMirrorImage(root1.getRightChild(),root2.getLeftChild());
+        }
+        return false;
+    }
 
-       if(root.getLeftChild()!=null && root2.getRightChild()!=null)
-        {
-        
-         isMirrorL = this.mirrorImage(root.getLeftChild(), root2.getRightChild())
-       
-        }
+    createMirrorTree(root){
+        if(root == null)
+            return null;
+        var leftChild = this.createMirrorTree((root.getLeftChild()));
+        var rightChild = this.createMirrorTree(root.getRightChild());
 
-        else if(root.getRightChild()!=null && root2.getLeftChild()!=null)
-        {
-            
-             isMirrorR = this.mirrorImage(root.getRightChild(), root2.getLeftChild())
-        }
-        
-        return isMirrorL && isMirrorR
-      
+        var tempNode = new treeNode.TreeNode(root.getData());
+        tempNode.setLeftChild(rightChild);
+        tempNode.setRightChild(leftChild);
+
+        return tempNode;
     }
     
 }
