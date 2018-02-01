@@ -7,6 +7,7 @@
 */
 
 import * as treeNode from './TreeNode'
+import * as stack from '../Stack'
 
 export class TreeTraversal{
     
@@ -56,13 +57,17 @@ export class TreeTraversal{
                 if(poststack.isEmpty()){
                     return;
                 }
-                else if(poststack.peek() == null){
+                else if(poststack.peek()!=null && poststack.peek().getRightChild() == null){
                     root = poststack.pop();
                     console.log(root.getData());
-                    if(root.getData() == poststack.peek().getData()){
+                    if(root !=null && poststack.peek().getRightChild()!=null && root.getData() == poststack.peek().getRightChild().getData()){
                         console.log(poststack.peek().getData());
-                        poststack.pop()
+                        root = poststack.pop()
                     }
+                }
+                if(root !=null && poststack.peek() !=null && poststack.peek().getRightChild()!=null && poststack.peek().getRightChild().getData() == root.getData()){
+                    root = poststack.pop();
+                    console.log(root.getData());
                 }
                 if(!poststack.isEmpty()){
                     root = poststack.peek().getRightChild();

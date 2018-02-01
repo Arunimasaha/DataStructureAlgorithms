@@ -43,4 +43,11 @@ Stack.prototype.isFull = function() // checks overflow
   return this.size === this.capacity-1 ? true : false;
 }
 
+Stack.prototype.peek = function() // checks overflow
+{
+  if(this.size == -1)
+    return null;
+  return this.stack[this.size]; 
+}
+
 module.exports = {Stack:Stack}
