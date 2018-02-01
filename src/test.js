@@ -78,5 +78,6 @@ var max = callBinaryTree.maxElem(root);
 var min = callBinaryTree.minElem(root);
 var elem = callBinaryTree.search(root,3);
 
-var mirrorTree = traversal.TreeTraversal.createMirrorTree(root);
-console.log(traversal.TreeTraversal.isMirrorImage(root,mirrorTree));
+//var mirrorTree = traversal.TreeTraversal.createMirrorTree(root);
+//console.log(traversal.TreeTraversal.isMirrorImage(root,mirrorTree));
+traversal.TreeTraversal.isMirrorImage(root)
