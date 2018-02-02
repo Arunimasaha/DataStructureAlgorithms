@@ -81,43 +81,59 @@ export class TreeTraversal{
     }
 
     static printPath(root){
-        
-            var instack = new stack.Stack(20);
-            var pathStack = new stack.Stack(20);
-            var print_flag = false;
-            while(true)
-            {
-               
-                while(root!=null)
-                {
-                    instack.push(root)
-                    pathStack.push(root);
-                    root = root.getLeftChild();
-                    
-                }
-                if(root == null && instack.peek().getRightChild() == null){
-                    pathStack.print();
-                    pathStack.pop();
-                    print_flag = true;
-                }
-                if(!instack.isEmpty())
-                {
-                    root = instack.pop();
-                   // console.log(root.getData())
-                    root = root.getRightChild();
-                    if(print_flag){
-                        while(pathStack.peek() != null && pathStack.peek().getData() != instack.peek().getData()){
-                            pathStack.pop();
-                        }
-                        print_flag = false;
-                    }
-                }
-                else
-                {
-                    break;
-                }
-            }
+        var pathstack = new stack.Stack(20);
+        // if(root == null)
+        //     return;
+        // pathstack.push(root);
+        // while(!pathstack.isEmpty()){
+        //     if(root.getLeftChild() != null){
+        //         pathstack.push(root.getLeftChild());
+        //         root = root.getLeftChild();
+        //     }
+        //     else{
+        //         if(root.getRightChild == null)
+        //             pathstack.print();
+        //         var temp = pathstack.peek();
+        //         while(isRightSibling(temp,pathstack) || temp.getRightChild() == null){
+        //             temp = pathstack.pop();
+        //         }
+        //         if(temp.getRightChild() != null){
+        //             //pathstack.push(temp);
+        //             root = temp.getRightChild();
+        //             pathstack.push(root);
+        //         }
+                
+        //     }
+        // }
+
+        this.print_Tree(root,pathstack);
+    }
+
+    static isRightSibling(temp,pathstack){
+        return pathstack.peek().getRightChild().getData() == temp.getData() ;
+    }
+
+    static hasRightSibling(temp,pathstack){
+        return pathstack.peek().getRightChild() != null;
+    }
+
+    static print_Tree(root,stack){
+        if(root.getLeftChild() == null && root.getRightChild() == null){
+            stack.push(root);
+            stack.print();
+            stack.pop();
+            return;
         }
+        stack.push(root);
+        if(root.getLeftChild()!=null){
+            this.print_Tree(root.getLeftChild(),stack);
+        }
+        if(root.getRightChild()!=null){
+            this.print_Tree(root.getRightChild(),stack);
+        }
+        stack.pop();
+        
+    }
     
     
 } 
