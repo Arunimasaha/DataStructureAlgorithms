@@ -91,6 +91,11 @@ callBinaryTree.addNode(root, callBinaryTree.createNode(5));
 callBinaryTree.addNode(root, callBinaryTree.createNode(8));
 callBinaryTree.addNode(root, callBinaryTree.createNode(20));
 callBinaryTree.addNode(root, callBinaryTree.createNode(15));
+callBinaryTree.nonRecursivePostOrder(root);
+callBinaryTree.LevelOrder(root);
+callBinaryTree.recursivePostOrder(root);
+callBinaryTree.recursivePreOrder(root);
+callBinaryTree.recursiveInOrder(root);
 var root1 = callBinaryTree.createMirrorTree(root);
 callBinaryTree.isMirrorImage(root, root1);
 

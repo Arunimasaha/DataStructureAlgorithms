@@ -17,7 +17,7 @@ export class Queue{
 
     isEmpty(){
       if(this.rear == this.front && this.front==-1)
-       return false
+       return true
        else if (this.rear == this.front)
        {
           this.rear = -1;

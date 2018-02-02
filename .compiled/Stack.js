@@ -26,6 +26,22 @@ Stack.prototype.pop = function () {
   }
 };
 
+Stack.prototype.print = function () {
+  this.stack.forEach(function (x) {
+    console.log(x);
+  });
+};
+
+Stack.prototype.peek = function () {
+  if (this.isEmpty()) {
+    console.log("stack is empty");
+    return null;
+  } else {
+    var x = this.stack[this.size];
+    return x;
+  }
+};
+
 Stack.prototype.isEmpty = function () // checks underflow
 {
   return this.size === -1 ? true : false;

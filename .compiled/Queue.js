@@ -26,7 +26,7 @@ var Queue = exports.Queue = function () {
   }, {
     key: "isEmpty",
     value: function isEmpty() {
-      if (this.rear == this.front && this.front == -1) return false;else if (this.rear == this.front) {
+      if (this.rear == this.front && this.front == -1) return true;else if (this.rear == this.front) {
         this.rear = -1;
         this.front = -1;
         return true;
