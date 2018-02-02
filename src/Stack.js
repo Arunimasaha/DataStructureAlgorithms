@@ -50,4 +50,11 @@ Stack.prototype.peek = function() // checks overflow
   return this.stack[this.size]; 
 }
 
+Stack.prototype.print = function()
+{
+  this.stack.forEach(function(x)
+    {console.log(x.getData())});
+
+}
+
 module.exports = {Stack:Stack}

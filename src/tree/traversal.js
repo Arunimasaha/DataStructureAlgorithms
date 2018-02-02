@@ -82,25 +82,35 @@ export class TreeTraversal{
 
     static printPath(root){
         
-            var instack = new stack.Stack(20)
+            var instack = new stack.Stack(20);
+            var pathStack = new stack.Stack(20);
+            var print_flag = false;
             while(true)
             {
-                if(root == null){
-                    instack.TreePath();
-                }
+               
                 while(root!=null)
                 {
                     instack.push(root)
-                    
+                    pathStack.push(root);
                     root = root.getLeftChild();
                     
+                }
+                if(root == null && instack.peek().getRightChild() == null){
+                    pathStack.print();
+                    pathStack.pop();
+                    print_flag = true;
                 }
                 if(!instack.isEmpty())
                 {
                     root = instack.pop();
-                    console.log(root.getData())
-                    
+                   // console.log(root.getData())
                     root = root.getRightChild();
+                    if(print_flag){
+                        while(pathStack.peek() != null && pathStack.peek().getData() != instack.peek().getData()){
+                            pathStack.pop();
+                        }
+                        print_flag = false;
+                    }
                 }
                 else
                 {

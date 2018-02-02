@@ -80,4 +80,4 @@ var elem = callBinaryTree.search(root,3);
 
 //var mirrorTree = traversal.TreeTraversal.createMirrorTree(root);
 //console.log(traversal.TreeTraversal.isMirrorImage(root,mirrorTree));
-traversal.TreeTraversal.postOrder2(root);
+traversal.TreeTraversal.printPath(root);
