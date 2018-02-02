@@ -79,5 +79,35 @@ export class TreeTraversal{
             }
         }
     }
+
+    static printPath(root){
+        
+            var instack = new stack.Stack(20)
+            while(true)
+            {
+                if(root == null){
+                    instack.TreePath();
+                }
+                while(root!=null)
+                {
+                    instack.push(root)
+                    
+                    root = root.getLeftChild();
+                    
+                }
+                if(!instack.isEmpty())
+                {
+                    root = instack.pop();
+                    console.log(root.getData())
+                    
+                    root = root.getRightChild();
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+    
     
 } 
