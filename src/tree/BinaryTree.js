@@ -299,7 +299,7 @@ export class BinarySearchTree
         }
     }
     
-    LevelOrder(root)
+    levelOrder(root)
     {
         var LevelQ = new queue.Queue(20);
         console.log(root.getData());
@@ -322,27 +322,47 @@ export class BinarySearchTree
         
     }
 
-    TreePaths(root)
+    treePaths(root)
     {
+        var OrTree = root;
         var pathStack = new stack.Stack(20);
-        
+        pathStack.push(root);
+       while(true) 
+       {
 
-        if(root.getLeftChild() != null && root.getRightChild() != null)
+        while(root.getLeftChild() != null)
         {
-            pathStack.push(root)
             root = root.getLeftChild();
+            pathStack.push(root)
+            
         }
        
-            if(!isEmpty())
+            if(!pathStack.isEmpty())
             {
-                var x = pathStack.pop();
+                var x = pathStack.peek();
                 if(x.getRightChild() != null)
                 {
                     root = x.getRightChild();
-                    pathStack.push(x.getRightChild())
+                    if(root.getData()!= OrTree.getData())
+                    {
+                    pathStack.push(root)
+                    }
+                    else
+                    root = pathStack.pop();
                 }
+             
             }
+            else
+            break
+            if(root.getLeftChild() == null && root.getRightChild() == null)
+            {         
             pathStack.print();
+            OrTree = pathStack.pop();
+
+           // root = null
+            }
+
+        }
         
     }
     

@@ -4,6 +4,8 @@ import * as queue from './Queue'
 import * as ll from './LinkedList/LinkedList'
 import * as dll from './LinkedList/DoubleLinkedList'
 import * as tree from './tree/BinaryTree'
+import * as heap from './BinaryHeap'
+import * as pqueue from './PriotityQueue'
 
 // var cirqueuemodule = require('./CircularQueue')
 // var callStack = new stackModule.Stack(10);
@@ -43,7 +45,18 @@ import * as tree from './tree/BinaryTree'
 // callcirqueue.enqueue(7)
 // var x = callcirqueue.dequeue();
 // console.log(x);
+var callpqueue = new pqueue.PriorityQueue();
+callpqueue.createQueue()
+callpqueue.Enqueue(30,3)
+callpqueue.maxHeapify(0,2); 
+var myArr = [9,21,3,10,5,16,13]
+var callHeap = new heap.BinaryHeap();
+callHeap.setData(myArr);
+callHeap.buildHeap()
+callHeap.deleteHeap(9)
 
+callHeap.heapSort();
+callHeap.insertHeap(50)
 var callLinkedList = new ll.LinkedList()
 callLinkedList.addFirst(9);
 callLinkedList.addFirst(8);
@@ -74,6 +87,7 @@ callBinaryTree.addNode(root,callBinaryTree.createNode(5));
  callBinaryTree.addNode(root,callBinaryTree.createNode(8));
  callBinaryTree.addNode(root,callBinaryTree.createNode(20));
  callBinaryTree.addNode(root,callBinaryTree.createNode(15));
+ callBinaryTree.treePaths(root);
  callBinaryTree.nonRecursivePostOrder(root);
 callBinaryTree.LevelOrder(root);
  callBinaryTree.recursivePostOrder(root);

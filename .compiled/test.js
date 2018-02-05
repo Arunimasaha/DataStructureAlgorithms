@@ -16,6 +16,14 @@ var _BinaryTree = require('./tree/BinaryTree');
 
 var tree = _interopRequireWildcard(_BinaryTree);
 
+var _BinaryHeap = require('./BinaryHeap');
+
+var heap = _interopRequireWildcard(_BinaryHeap);
+
+var _PriotityQueue = require('./PriotityQueue');
+
+var pqueue = _interopRequireWildcard(_PriotityQueue);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 //import {Stack} from 'Stack'
@@ -60,7 +68,18 @@ var stackModule = require('./Stack');
 // callcirqueue.enqueue(7)
 // var x = callcirqueue.dequeue();
 // console.log(x);
+var callpqueue = new pqueue.PriorityQueue();
+callpqueue.createQueue();
+callpqueue.Enqueue(30, 3);
+callpqueue.maxHeapify(0, 2);
+var myArr = [9, 21, 3, 10, 5, 16, 13];
+var callHeap = new heap.BinaryHeap();
+callHeap.setData(myArr);
+callHeap.buildHeap();
+callHeap.deleteHeap(9);
 
+callHeap.heapSort();
+callHeap.insertHeap(50);
 var callLinkedList = new ll.LinkedList();
 callLinkedList.addFirst(9);
 callLinkedList.addFirst(8);
@@ -91,6 +110,7 @@ callBinaryTree.addNode(root, callBinaryTree.createNode(5));
 callBinaryTree.addNode(root, callBinaryTree.createNode(8));
 callBinaryTree.addNode(root, callBinaryTree.createNode(20));
 callBinaryTree.addNode(root, callBinaryTree.createNode(15));
+callBinaryTree.treePaths(root);
 callBinaryTree.nonRecursivePostOrder(root);
 callBinaryTree.LevelOrder(root);
 callBinaryTree.recursivePostOrder(root);
